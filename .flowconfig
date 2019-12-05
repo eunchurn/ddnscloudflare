@@ -1,0 +1,8 @@
+[ignore]
+.*/dist
+.*/coverage
+[libs]
+flow-typed
+[options]
+module.file_ext=.js
+module.name_mapper='libs' -> '<PROJECT_ROOT>/src/libs'

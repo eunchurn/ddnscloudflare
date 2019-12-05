@@ -1,0 +1,82 @@
+{
+  "name": "ddnscloudflare",
+  "version": "0.0.1",
+  "description": "DDNS script for Cloudflare.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "babel-node ./src/index.js",
+    "test": "jest",
+    "coverage": "npm test -- --coverage",
+    "postcoverage": "open-cli coverage/lcov-report/index.html",
+    "lint": "eslint .",
+    "flow": "flow",
+    "flow:check": "flow check ./src",
+    "flow:install": "flow-typed install",
+    "clean": "rimraf dist",
+    "flow:build": "flow-copy-source src dist",
+    "prebuild": "rimraf dist && npm run flow:build",
+    "build": "babel src -d dist",
+    "prerelease": "npm run lint && npm test && npm run build",
+    "release": "standard-version",
+    "postpublish": "git push origin master --follow-tags",
+    "tree": "tree -a -I 'node_modules|.git'"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/eunchurn/ddnscloudflare.git"
+  },
+  "keywords": [
+    "ddns",
+    "cloudflare"
+  ],
+  "author": "Eunchurn Park (eunchurn.park@gmail.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eunchurn/ddnscloudflare/issues"
+  },
+  "homepage": "https://github.com/eunchurn/ddnscloudflare#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.7.4",
+    "@babel/core": "7.7.4",
+    "@babel/node": "7.7.4",
+    "@babel/plugin-proposal-class-properties": "7.7.4",
+    "@babel/preset-env": "7.7.4",
+    "@babel/preset-flow": "7.7.4",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "24.9.0",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "documentation": "12.1.4",
+    "eslint": "6.7.0",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-config-prettier": "6.7.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-flowtype": "4.5.0",
+    "eslint-plugin-flowtype-errors": "4.1.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-prettier": "3.1.1",
+    "flow-bin": "0.113.0",
+    "flow-copy-source": "2.0.8",
+    "flow-typed": "^2.6.2",
+    "husky": "3.1.0",
+    "jest": "24.9.0",
+    "lint-staged": "9.5.0",
+    "open-cli": "5.0.0",
+    "prettier": "1.19.0",
+    "rimraf": "3.0.0",
+    "standard-version": "7.0.1"
+  }
+}

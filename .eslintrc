@@ -1,0 +1,38 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "airbnb-base",
+    "plugin:flowtype/recommended",
+    "plugin:prettier/recommended",
+    "prettier/flowtype"
+  ],
+  "plugins": ["flowtype", "flowtype-errors"],
+  "env": {
+    "node": true,
+    "jest": true,
+    "browser": true,
+    "es6": true,
+    "commonjs": true
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["libs", "./src/libs/"]],
+        "extensions": [".js", ".json"]
+      }
+    }
+  },
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "rules": {
+    "flowtype-errors/show-errors": "error",
+    "prettier/prettier": ["error"],
+    "no-console": ["off"]
+  }
+}
