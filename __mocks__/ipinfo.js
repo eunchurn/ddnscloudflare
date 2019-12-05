@@ -15,7 +15,7 @@ const data = {
     via: "1.1 google",
     connection: "close",
   },
-  ip: "220.86.118.35",
+  ip: "220.86.118.90",
 };
 
 const ipinfo = () => {

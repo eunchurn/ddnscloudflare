@@ -32,6 +32,14 @@
       "git add"
     ]
   },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "dist"
+    ],
+    "collectCoverageFrom": [
+      "src/libs/**/*.js"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/eunchurn/ddnscloudflare.git"
