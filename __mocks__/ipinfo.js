@@ -19,7 +19,7 @@ const data = {
 };
 
 const ipinfo = () => {
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     process.nextTick(() => resolve(data));
   });
 };

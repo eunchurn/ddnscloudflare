@@ -9,10 +9,10 @@ const options = {
 
 const ipinfo = () => {
   return new Promise((resolve, reject) => {
-    const req = https.request(options, res => {
+    const req = https.request(options, (res) => {
       const { statusCode, headers } = res;
       if (statusCode === 200) {
-        res.on("data", data => {
+        res.on("data", (data) => {
           const json = JSON.parse(data.toString());
           const { ip } = json;
           resolve({
@@ -26,7 +26,7 @@ const ipinfo = () => {
       }
     });
 
-    req.on("error", e => {
+    req.on("error", (e) => {
       reject(e);
     });
     req.end();
